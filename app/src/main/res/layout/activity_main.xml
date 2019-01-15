@@ -11,7 +11,6 @@
         android:id="@+id/ball"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:contentDescription="TODO"
         app:srcCompat="@drawable/ic_lens_black_24dp"
         tools:ignore="VectorDrawableCompat" />

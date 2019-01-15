@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 if (event.getAction() == MotionEvent.ACTION_DOWN){
                     // Get X & Y clic position
                     if(firstTime){
-                        moveBall(set, ball, bottomBar, 3000);
+                        moveBall(set, ball, bottomBar, 5000);
                         firstTime = false;
                     }
                     coord_x = event.getX() - (size.x/2);
@@ -68,10 +68,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                if (ball.getX() > size.y/2)
-                    moveBall(animation, ball, bottomBar, (int) (animation.getDuration()/2));
+                if (ball.getY() < size.y/2)
+                    moveBall(set, ball, bottomBar, (int) (animation.getDuration()/2));
                 else
-                    moveBall(animation, ball, topBar, (int) (animation.getDuration()/2));
+                    moveBall(set, ball, topBar, (int) (animation.getDuration()/2));
             }
 
             @Override
@@ -92,11 +92,12 @@ public class MainActivity extends AppCompatActivity {
         move.start();
     }
 
-    public void moveBall(Animator animator, ImageView ball, ImageView bar, Integer duration){
+    public void moveBall(AnimatorSet animator, ImageView ball, ImageView bar, Integer duration){
         animator.playTogether(
-                ObjectAnimator.ofFloat(ball, "y", bar.getY() - 50),
+                ObjectAnimator.ofFloat(ball, "y", bar.getY()),
                 ObjectAnimator.ofFloat(ball, "x", bar.getX())
         );
+        animator.setupStartValues();
         animator.setDuration(duration).start();
     }
 }
