@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
                     COORD_X = event.getX();
                     COORD_Y = event.getY();
                     if (COORD_Y > (size.y / 2))
-                        Toast.makeText(getApplicationContext(), "Bonjour vous avez cliqué en bas !", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Bonjour vous avez cliqué en bas ! \n tu a cliqué en X = " + COORD_X, Toast.LENGTH_LONG).show();
                     else
-                        Toast.makeText(getApplicationContext(), "Bonjour vous avez cliqué en haut", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Bonjour vous avez cliqué en haut ! \n tu a cliqué en X = " + COORD_X, Toast.LENGTH_LONG).show();
                 }
                 return true;
             }
